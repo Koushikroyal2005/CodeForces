@@ -276,21 +276,16 @@ ll fact(int n){
 void solve(){
     int1(n);
     invec(arr,n);
-    if(n==2){
-        if(abs(arr[0]-arr[1])<=1) cout<<0<<endl;
-        else cout<<-1<<endl;
-        return;
+    for(ll i=1;i<n;i++){
+        if(abs(arr[i]-arr[i-1])<=1){
+            cout<<0<<endl;
+            return;
+        }
     }
-    for(ll i=0;i<n;i++){
-        if(i>0 && i<n-1){
-            if(abs(arr[i]-arr[i-1])<=1 || abs(arr[i]-arr[i+1])<=1){
-                cout<<0<<endl;
-                return;
-            }
-            if((arr[i-1]<arr[i] && arr[i]>arr[i+1]) || (arr[i-1]>arr[i] && arr[i]<arr[i+1])){
-                cout<<1<<endl;
-                return;
-            }
+    for(ll i=1;i<n-1;i++){
+        if((arr[i-1]<arr[i] && arr[i]>arr[i+1]) || (arr[i-1]>arr[i] && arr[i]<arr[i+1])){
+            cout<<1<<endl;
+            return;
         }
     }
     cout<<-1<<endl;
